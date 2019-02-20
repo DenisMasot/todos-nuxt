@@ -5,45 +5,20 @@
       <h1 class="title">
         Todos with nuxt
       </h1>
-
-      <input type="text" placeholder="écrire une nouvelle tache" v-model='newTodo' @keyup.enter="addTodo">
-
-      <ul v-for='todo in todos' :key="todo.index" >
-        <todo :todo="todo"></todo>
-      </ul>
+      <todos></todos>
     </div>
   </section>
 </template>
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
-import Todo from '~/components/Todo.vue'
+import Todos from '~/components/Todos.vue'
 
 export default {
   components: {
     AppLogo,
-    Todo
+    Todos
   },
-  
-
-  data () {
-    return {
-      newTodo: '',
-      todos: [{
-        name: 'tache n°1',
-        completed: false
-      }]
-    }
-  },
-  methods: {
-    addTodo () {
-      this.todos.push({
-        name: this.newTodo,
-        completed: false
-      })
-      this.newTodo = ''
-    }
-  }
 }
 
 </script>
