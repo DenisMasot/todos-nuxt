@@ -11,10 +11,14 @@
 </template>
 
 <script>
+import store from '../store/store.js'
+
 import AppLogo from '~/components/AppLogo.vue'
 import Todos from '~/components/Todos.vue'
 
+
 export default {
+  store,
   components: {
     AppLogo,
     Todos

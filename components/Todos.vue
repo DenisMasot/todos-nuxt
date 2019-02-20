@@ -1,38 +1,36 @@
 <template>
   <div>
-      <input type="text" placeholder="écrire une nouvelle tache" v-model='newTodo' @keyup.enter="addTodo">
+      <input type="text" placeholder="Ajouter une tache" @keyup.enter="addTodo">
 
       <ul v-for='todo in todos' :key="todo.index" >
         <todo :todo="todo"></todo>
       </ul>
+
   </div>
 </template>
 
 <script>
+import store from '../store/store.js'
 import Todo from '~/components/Todo.vue'
 
 export default {
-    components: {
+  store,
+  components: {
     Todo
   },
-  data () {
-    return {
-      newTodo: '',
-      todos: [{
-        name: 'tache n°1',
-        completed: false
-      }]
-    }
+  computed: {
+    todos () {
+      return this.$store.state.todos
+    },
   },
   methods: {
-    addTodo () {
-      this.todos.push({
-        name: this.newTodo,
-        completed: false
-      })
-      this.newTodo = ''
-    }
+    addTodo (e) {
+      console.log('ta valeur est : ', e.target.value)
+      this.$store.commit('add', e.target.value)
+      e.target.value = ''
+    },
   }
+
 }
 </script>
 
