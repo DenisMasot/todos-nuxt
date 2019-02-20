@@ -16,12 +16,6 @@ const createStore = () => {
           name: name,
           completed: false
         })
-      },
-      remove (state, { todo }) {
-        state.todos.splice(state.todos.indexOf(todo), 1)
-      },
-      toggle (state, todo) {
-        todo.done = !todo.done
       }
     }
   })

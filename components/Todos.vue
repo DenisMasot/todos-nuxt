@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     addTodo (e) {
-      console.log('ta valeur est : ', e.target.value)
       this.$store.commit('add', e.target.value)
       e.target.value = ''
     },
