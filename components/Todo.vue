@@ -1,6 +1,9 @@
 <template>
   <!-- <li>TODO</li> -->
-    <li>{{todo.name}}</li>
+    <li>
+      <input type="checkbox" v-model="todo.completed" >
+      <label :class="{completed: todo.completed}">{{todo.name}}</label>
+    </li>
 </template>
 
 <script>
@@ -11,5 +14,7 @@ export default {
 </script>
 
 <style>
-
+.completed{
+  color: #777
+}
 </style>
