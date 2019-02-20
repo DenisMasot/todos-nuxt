@@ -8,8 +8,8 @@
 
       <input type="text" placeholder="écrire une nouvelle tache" v-model='newTodo' @keyup.enter="addTodo">
 
-      <ul v-for='todo in todos' :key="todo.index">
-        <li>{{todo.name}}</li>
+      <ul v-for='todo in todos' :key="todo.index" >
+        <todo :todo="todo"></todo>
       </ul>
     </div>
   </section>
@@ -17,11 +17,15 @@
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import Todo from '~/components/Todo.vue'
 
 export default {
   components: {
-    AppLogo
+    AppLogo,
+    Todo
   },
+  
+
   data () {
     return {
       newTodo: '',
