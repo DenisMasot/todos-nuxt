@@ -15,12 +15,12 @@ const createStore = () => {
           name: name,
           completed: false
         })
-        console.log(state.todos[1])
-
       },
       remove (state, index) {
         state.todos.splice(state.todos[index], 1)
-        //console.log(state.todos.length)
+      },
+      edit (state, {name, index} ) {
+        state.todos[index].name = name
       },
     }
   })
