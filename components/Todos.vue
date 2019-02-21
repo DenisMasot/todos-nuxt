@@ -2,8 +2,8 @@
   <div>
       <input type="text" placeholder="Ajouter une tache" @keyup.enter="addTodo">
 
-      <ul v-for='todo in todos' :key="todo.index" >
-        <todo :todo="todo"></todo>
+      <ul v-for='(todo, index) in todos' :key="index" >
+        <todo :todo="todo" :index="index"></todo>
       </ul>
 
   </div>
@@ -27,7 +27,7 @@ export default {
     addTodo (e) {
       this.$store.commit('add', e.target.value)
       e.target.value = ''
-    },
+    }
   }
 
 }
